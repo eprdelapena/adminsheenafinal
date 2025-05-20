@@ -53,6 +53,7 @@ const useV1GetLogs = () => {
         payload,
         orderLogs,
         setOrderLogs,
+        getV1GetLogsOrder,
         setLogs,
         setPayload,
         setCurrentSkip,

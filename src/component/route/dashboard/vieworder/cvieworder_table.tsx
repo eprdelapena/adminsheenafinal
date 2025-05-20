@@ -95,6 +95,7 @@ const CViewOrderTable = (props: { userData: TUserSession }) => {
     try {
       await Promise.all([
         getV1GetInstallment({ orderid: currentOrderId }),
+        getV1GetLogsOrder(currentOrderId),
         getV1GetSingleOrderUser({ orderid: currentOrderId }),
       ]);
     } finally {
