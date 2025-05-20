@@ -1,7 +1,7 @@
 
 
 export enum EParamsDefault {
-        IPAddress = "http://192.168.254.122",
+            IPAddress = "http://192.168.254.122",
   admin = "admin",
   user = "user",
   emptystring = "",
