@@ -5,7 +5,7 @@ import {
   TUserSession,
 } from "@/schema/main_schema";
 import client from "@/api/api_main";
-import { EAPIStatusCodes } from "@/enum/main_enum";
+import { EAPIStatusCodes, EParamsDefault } from "@/enum/main_enum";
 import { getServerSession } from "next-auth";
 import authOptions from "@/utils/next_auth";
 import { getRequestConfig } from "@/utils/main_utils";
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     const body: TParamsGenerateBarcode = await req.json();
 
     const apiResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/v9/generate_barcode`,
+      `${EParamsDefault.IPAddress}:3001/v9/generate_barcode`,
       {
         method: "POST",
         headers: {

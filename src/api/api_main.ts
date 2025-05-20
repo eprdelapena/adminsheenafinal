@@ -1,3 +1,4 @@
+import { EParamsDefault } from "@/enum/main_enum";
 import {
   TDataGetAdmin,
   TDataGetInstallment,
@@ -41,7 +42,7 @@ class NextClient {
   client: Axios;
   constructor() {
     const instance = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL,
+      baseURL: `${EParamsDefault.IPAddress}:3001`,
       headers: {
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Origin":

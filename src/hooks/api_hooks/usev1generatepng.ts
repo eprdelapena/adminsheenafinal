@@ -1,4 +1,5 @@
 import Instance_ApiLocal from "@/api/api_local";
+import { EParamsDefault } from "@/enum/main_enum";
 import { TDataGetProducts, TDataViewOrderItem, TUserSession } from "@/schema/main_schema";
 import { Session } from "next-auth";
 import Swal from "sweetalert2";
@@ -30,7 +31,7 @@ const useV1OrderGenerateBarcode = () => {
     });
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/v9/order_item_generate_barcode`,
+      `${EParamsDefault.IPAddress}/v9/order_item_generate_barcode`,
       {
         method: "POST",
         headers: {

@@ -26,7 +26,7 @@ const useV1GenerateBarcode = () => {
     });
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/v9/generate_barcode`,
+      `${EParamsDefault.IPAddress}:3001/v9/generate_barcode`,
       {
         method: "POST",
         headers: {
