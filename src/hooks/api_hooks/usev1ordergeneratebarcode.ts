@@ -42,18 +42,19 @@ const useV1OrderGenerateBarcode = () => {
       },
     );
 
-    const blob = await response.blob();
-    const url = URL.createObjectURL(blob);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
 
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `orders_qr.docx`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+      link.href = url;
+      link.download = `${orderid}_qr.xlsx`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
 
-    URL.revokeObjectURL(url);
-    Swal.close();
+// Optionally close the loading modal
+Swal.close();
     return;
   };
 

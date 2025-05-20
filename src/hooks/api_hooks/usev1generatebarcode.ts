@@ -40,20 +40,20 @@ const useV1GenerateBarcode = () => {
         }),
       },
     );
+ 
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
 
-    const blob = await response.blob();
-    const url = URL.createObjectURL(blob);
+      link.href = url;
+      link.download = `${product.title}_${product.productid}_qr.xlsx`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
 
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `barcode_${product.title}_${product.productid}_qr.docx`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
-    Swal.close();
-    return;
+// Optionally close the loading modal
+Swal.close();
   };
 
   return {
