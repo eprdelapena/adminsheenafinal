@@ -1,4 +1,5 @@
 import Instance_ApiLocal from "@/api/api_local";
+import { EParamsDefault } from "@/enum/main_enum";
 import { TDataGetProducts, TUserSession } from "@/schema/main_schema";
 import { Session } from "next-auth";
 import { useState } from "react";
@@ -13,7 +14,7 @@ const useV1GenerateBarcode = () => {
     session: Session | null,
   ) => {
     const currentToken = (session?.user as TUserSession)?.token;
-    console.log(`${process.env.NEXT_PUBLIC_API_URL}/v9/generate_barcode`, "Barcode link")
+    console.log(`${EParamsDefault.IPAddress}:3001/v9/generate_barcode`, "Barcode link")
     Swal.fire({
       title: "Loading",
       text: "Please wait while we prepare your QR Code...",
