@@ -1,3 +1,4 @@
+import { EParamsDefault } from "@/enum/main_enum";
 import { TGetParams, TPostParams } from "@/schema/main_schema";
 import axios, { AxiosInstance } from "axios";
 
@@ -7,7 +8,7 @@ export class AxiosService {
 
   constructor() {
     const baseURL =
-      "http://192.168.254.135:3000";
+      `${EParamsDefault.IPAddress}:3000`;
 
     const client = axios.create({
       baseURL: baseURL,
